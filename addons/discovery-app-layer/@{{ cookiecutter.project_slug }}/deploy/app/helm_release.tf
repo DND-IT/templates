@@ -16,7 +16,7 @@ resource "helm_release" "app" {
   name             = local.app_name
   repository       = "https://dnd-it.github.io/helm-charts"
   chart            = "webapp"
-  version          = "1.6.0"
+  version          = "1.7.0"
   namespace        = local.app_name
   create_namespace = true
   atomic           = true
