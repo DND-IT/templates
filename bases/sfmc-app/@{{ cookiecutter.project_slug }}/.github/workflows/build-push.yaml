@@ -33,7 +33,7 @@ jobs:
 
   docker_build_push:
     needs: [get_date]
-    uses: tx-pts-dai/github-workflows/.github/workflows/docker-build-push-ecr.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/docker-build-push-ecr.yaml@v2
     with:
       environment: prod
       docker_context: .

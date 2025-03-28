@@ -41,7 +41,7 @@ jobs:
             aws_role_name: @{{ values.aws_role_name }}
           {%- endfor %}
         {%- endif %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-plan.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-plan.yaml@v2
     with:
       {%- if cookiecutter.github_environments %}
       environment: ${{ matrix.stack }}-${{ matrix.environment }}
@@ -75,7 +75,7 @@ jobs:
             aws_role_name: @{{ values.aws_role_name }}
           {%- endfor %}
         {%- endif %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-apply.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-apply.yaml@v2
     with:
       {%- if cookiecutter.github_environments %}
       environment: ${{ matrix.stack }}-${{ matrix.environment }}

@@ -42,7 +42,7 @@ jobs:
             aws_role_name: @{{ values.aws_role_name }}
           {%- endfor %}
         {%- endif %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/docker-build-push-ecr.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/docker-build-push-ecr.yaml@v2
     with:
       docker_context: "@{{ cookiecutter.docker_context }}"
       dockerfile_path: "@{{ cookiecutter.dockerfile_path }}"
@@ -72,7 +72,7 @@ jobs:
             aws_region: @{{ cookiecutter.environments.dev.tf_state_region }}
             aws_role_name: @{{ cookiecutter.environments.dev.aws_role_name }}
         {%- endif %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-feature.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-feature.yaml@v2
     with:
       tf_vars: |
         branch="${{ github.head_ref }}"
@@ -111,7 +111,7 @@ jobs:
             aws_role_name: @{{ values.aws_role_name }}
           {%- endfor %}
         {%- endif %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-plan.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-plan.yaml@v2
     with:
       tf_vars: |
         image_tag="${{ github.sha }}"
@@ -148,7 +148,7 @@ jobs:
             aws_role_name: @{{ values.aws_role_name }}
           {%- endfor %}
         {%- endif %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-apply.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-apply.yaml@v2
     with:
       tf_vars: |
         image_tag="${{ github.sha }}"

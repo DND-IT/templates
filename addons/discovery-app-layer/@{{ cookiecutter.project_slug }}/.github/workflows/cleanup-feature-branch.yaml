@@ -18,7 +18,7 @@ jobs:
       matrix:
         stack: [app]
         environment: [preview]
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-cleanup.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-cleanup.yaml@v2
     with:
       tf_workspace: ${{ github.head_ref }}
       tf_vars: |

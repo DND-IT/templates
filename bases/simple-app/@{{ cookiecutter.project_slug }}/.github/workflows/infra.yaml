@@ -31,7 +31,7 @@ jobs:
           {%- for env in cookiecutter.environments %}
           - @{{ env }}
           {%- endfor %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-plan.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-plan.yaml@v2
     with:
       environment: ${{ matrix.stack }}-${{ matrix.environment }}
 
@@ -46,6 +46,6 @@ jobs:
           {%- for env in cookiecutter.environments %}
           - @{{ env }}
           {%- endfor %}
-    uses: tx-pts-dai/github-workflows/.github/workflows/tf-apply.yaml@v2
+    uses: DND-IT/github-workflows/.github/workflows/tf-apply.yaml@v2
     with:
       environment: ${{ matrix.stack }}-${{ matrix.environment }}
