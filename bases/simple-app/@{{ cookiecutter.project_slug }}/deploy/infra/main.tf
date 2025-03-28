@@ -55,6 +55,41 @@ resource "aws_ecr_lifecycle_policy" "this" {
 EOF
 }
 
+resource "aws_ecr_lifecycle_policy" "this" {
+  repository = aws_ecr_repository.this.name
+
+  policy = jsonencode({
+    rules = [
+      {
+        rulePriority = 1
+        description  = "Remove images older than 30 days"
+        selection = {
+          tagStatus     = "untagged"
+          countType     = "sinceImagePushed"
+          countUnit     = "days"
+          countNumber   = 30
+        }
+        action = {
+          type = "expire"
+        }
+      },
+      {
+        rulePriority = 2
+        description  = "Keep last 20 tagged images"
+        selection = {
+          tagStatus     = "tagged"
+          tagPrefixList = ["*"] 
+          countType     = "imageCountMoreThan"
+          countNumber   = 20
+        }
+        action = {
+          type = "expire"
+        }
+      }
+    ]
+  })
+}
+
 resource "aws_iam_policy" "get_all_secrets" {
   name        = "GetAllSecretsPolicy-${local.app_name}"
   description = "Policy to allow getting all secrets from AWS Secrets Manager"
