@@ -6,7 +6,7 @@ locals {
 
 module "platform_ssm" {
   source  = "tx-pts-dai/kubernetes-platform/aws//modules/ssm"
-  version = "1.2.0+1.32"
+  version = "1.3.1+1.32"
 
   base_prefix       = "infrastructure"
   stack_type        = "platform"
@@ -73,7 +73,7 @@ resource "aws_iam_policy" "get_all_secrets" {
 
 module "iam_eks_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-eks-role"
-  version = "5.54.0"
+  version = "5.54.1"
 
   role_name_prefix = "${local.app_name}-"
 
