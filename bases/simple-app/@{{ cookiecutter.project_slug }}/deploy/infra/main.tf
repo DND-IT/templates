@@ -73,7 +73,7 @@ resource "aws_iam_policy" "get_all_secrets" {
 
 module "iam_eks_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-eks-role"
-  version = "5.54.0"
+  version = "5.58.0"
 
   role_name_prefix = "${local.app_name}-"
 
