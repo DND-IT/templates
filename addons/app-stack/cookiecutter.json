@@ -1,0 +1,24 @@
+{
+  "stack_name": "infra",
+  "aws_region": "eu-central-1",
+  "github_repo": "disco-cdn",
+  "github_org": "DND-IT",
+  "project_slug": ".",
+  "environments": {
+    "dev": {
+      "tf_state_bucket": "tf-state-",
+      "tf_state_key": "@{{ cookiecutter.github_repo }}/${{ cookiecutter.stack_name }}/terraform.tfstate",
+      "tf_state_region": "eu-central-1"
+    }
+  },
+  "__prompts__": {
+    "stack_name": "Enter the name of terraform stack (infra, frontend, backend, ...)",
+    "github_repo": "Enter the name of the GitHub repository (disco, disco-cdn, discovery-ai-tools, ...)",
+    "github_org": "Enter the name of the GitHub organization",
+    "aws_region": "Enter the AWS region"
+  },
+  "_jinja2_env_vars": {
+    "variable_start_string": "@{{",
+    "variable_end_string": "}}"
+  }
+}

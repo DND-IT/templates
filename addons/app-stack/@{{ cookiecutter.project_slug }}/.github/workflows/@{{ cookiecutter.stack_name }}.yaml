@@ -1,0 +1,52 @@
+name: @{{ cookiecutter.stack_name }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+    - deploy/@{{ cookiecutter.stack_name }}/**
+    - .github/workflows/@{{ cookiecutter.stack_name }}.yaml
+  pull_request:
+    branches: [main]
+    paths:
+    - deploy/@{{ cookiecutter.stack_name }}/**
+    - .github/workflows/@{{ cookiecutter.stack_name }}.yaml
+    - stacks/shared/**
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  plan:
+    if: github.event_name == 'pull_request'
+    strategy:
+      fail-fast: false
+      matrix:
+        stack: @{{ cookiecutter.stack_name }}
+        environment:
+          {%- for env in cookiecutter.environments %}
+          - @{{ env }}
+          {%- endfor %}
+    uses: DND-IT/github-workflows/.github/workflows/tf-plan.yaml@v3
+    with:
+      environment: ${{ matrix.stack }}-${{ matrix.environment }}
+
+  apply:
+    if: github.ref_name == github.event.repository.default_branch && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    concurrency:
+      group: ${{ matrix.environment }}
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        stack: @{{ cookiecutter.stack_name }}
+        environment:
+          {%- for env in cookiecutter.environments %}
+          - @{{ env }}
+          {%- endfor %}
+    uses: DND-IT/github-workflows/.github/workflows/tf-apply.yaml@v3
+    with:
+      environment: ${{ matrix.stack }}-${{ matrix.environment }}
