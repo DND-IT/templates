@@ -1,5 +1,10 @@
 {
   "templates": {
+    "app-stack": {
+      "path": "./app-stack",
+      "title": "StackInAnApp",
+      "description": "Add a stack in an existing app repository"
+    },
     "discovery-app": {
       "path": "./discovery-app-layer",
       "title": "DiscoveryAppLayer",
