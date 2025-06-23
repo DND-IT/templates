@@ -7,7 +7,7 @@
   "environments": {
     "dev": {
       "tf_state_bucket": "tf-state-",
-      "tf_state_key": "@{{ cookiecutter.github_repo }}/${{ cookiecutter.stack_name }}/terraform.tfstate",
+      "tf_state_key": "@{{ cookiecutter.github_repo }}/@{{ cookiecutter.stack_name }}/terraform.tfstate",
       "tf_state_region": "eu-central-1"
     }
   },
