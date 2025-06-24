@@ -25,7 +25,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        stack: @{{ cookiecutter.stack_name }}
+        stack:
+          - @{{ cookiecutter.stack_name }}
         environment:
           {%- for env in cookiecutter.environments %}
           - @{{ env }}
@@ -42,7 +43,8 @@ jobs:
       fail-fast: true
       max-parallel: 1
       matrix:
-        stack: @{{ cookiecutter.stack_name }}
+        stack:
+          - @{{ cookiecutter.stack_name }}
         environment:
           {%- for env in cookiecutter.environments %}
           - @{{ env }}
