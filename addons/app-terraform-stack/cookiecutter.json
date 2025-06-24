@@ -1,7 +1,7 @@
 {
   "stack_name": "infra",
   "aws_region": "eu-central-1",
-  "github_repo": "disco-cdn",
+  "github_repo": "",
   "github_org": "DND-IT",
   "project_slug": ".",
   "environments": {

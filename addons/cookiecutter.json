@@ -1,9 +1,9 @@
 {
   "templates": {
-    "app-stack": {
-      "path": "./app-stack",
-      "title": "StackInAnApp",
-      "description": "Add a stack in an existing app repository"
+    "app-terraform-stack": {
+      "path": "./app-terraform-stack",
+      "title": "Terraform Stack for Application Repo",
+      "description": "Add a terraform stack in an existing app repository. Meant to deploy none k8s resources in an application repo"
     },
     "discovery-app": {
       "path": "./discovery-app-layer",
