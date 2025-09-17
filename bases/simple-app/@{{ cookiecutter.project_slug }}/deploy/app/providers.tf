@@ -70,7 +70,7 @@ data "terraform_remote_state" "infra_local" {
 
 module "platform_ssm" {
   source  = "tx-pts-dai/kubernetes-platform/aws//modules/ssm"
-  version = "2.2.2+1.32"
+  version = "5.0.2+1.33"
 
   base_prefix       = "infrastructure"
   stack_type        = "platform"
