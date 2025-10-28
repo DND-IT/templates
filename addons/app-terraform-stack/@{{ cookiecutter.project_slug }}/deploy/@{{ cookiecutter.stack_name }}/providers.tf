@@ -3,7 +3,7 @@ locals {
 }
 
 terraform {
-  required_version = "~> 1.12.0"
+  required_version = "~> 1.13.0"
 
   backend "s3" {
     use_lockfile = true
@@ -13,7 +13,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.0"
     }
   }
 }
