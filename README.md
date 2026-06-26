@@ -1,3 +1,7 @@
+⚠️ The repo has been archived. Templates have been replaced by
+
+[Backstage](https://backstage.dai.tamedia.tech/home) (Github [fission-backstage](https://github.com/DND-IT/fission-backstage))
+
 # Templates
 
 A collection of templates to support the development of new and old projects.
