@@ -2,7 +2,7 @@ locals {
   region = "@{{ cookiecutter.aws_region }}"
 }
 terraform {
-  required_version = "~> 1.12.0"
+  required_version = "~> 1.15.0"
 
   backend "s3" {
     use_lockfile = true
@@ -12,11 +12,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.0"
     }
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2.0"
+      version = "~> 3.0"
     }
   }
 }
@@ -70,7 +70,7 @@ data "terraform_remote_state" "infra_local" {
 
 module "platform_ssm" {
   source  = "tx-pts-dai/kubernetes-platform/aws//modules/ssm"
-  version = "2.2.2+1.32"
+  version = "6.13.0"
 
   base_prefix = "infrastructure"
   stack_type  = "platform"
